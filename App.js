@@ -1,76 +1,102 @@
-import React, { Component } from "react";
+// import {
+//   createStackNavigator,
+// } from 'react-navigation';
 
-import { Image, FlatList, StyleSheet, Text, View } from "react-native";
+// import HomeScreen from './src/pages/HomeScreen';
+// import ProfileScreen from './src/pages/ProfileScreen';
 
-var REQUEST_URL =
-  "https://raw.githubusercontent.com/facebook/react-native/0.51-stable/docs/MoviesExample.json";
+// const App = createStackNavigator({
+//   Home: { screen: HomeScreen },
+//   Profile: { screen: ProfileScreen },
+// });
 
-export default class SampleAppMovies extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      loaded: false
-    };
-    // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向会变为空
-    // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
-    this.fetchData = this.fetchData.bind(this);
-  }
+// export default App;
 
-  componentDidMount() {
-    this.fetchData();
-  }
+// import React from 'react';
+// import { Animated, Text, View } from 'react-native';
 
-  fetchData() {
-    fetch(REQUEST_URL)
-      .then(response => response.json())
-      .then(responseData => {
-        console.log(responseData);
-        // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作
-        this.setState({
-          data: this.state.data.concat(responseData.movies),
-          loaded: true
-        });
-      });
-  }
+// class FadeInView extends React.Component {
+//   state = {
+//     fadeAnim: new Animated.Value(0),  // 透明度初始值设为0
+//   }
 
-  renderLoadingView() {
-    return (
-      <View style={styles.container}>
-        <Text>Loading movies...</Text>
-      </View>
-    );
-  }
+//   componentDidMount() {
+//     Animated.timing(                  // 随时间变化而执行动画
+//       this.state.fadeAnim,            // 动画中的变量值
+//       {
+//         toValue: 1,                   // 透明度最终变为1，即完全不透明
+//         duration: 10000,              // 让动画持续一段时间
+//       }
+//     ).start();                        // 开始执行动画
+//   }
 
-  renderMovie({ item }) {
-    // { item }是一种“解构”写法，请阅读ES2015语法的相关文档
-    // item也是FlatList中固定的参数名，请阅读FlatList的相关文档
-    return (
-      <View style={styles.container}>
-        <Image
-          source={{ uri: item.posters.thumbnail }}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.year}>{item.year}</Text>
-        </View>
-      </View>
-    );
+//   render() {
+//     let { fadeAnim } = this.state;
+
+//     return (
+//       <Animated.View                 // 使用专门的可动画化的View组件
+//         style={{
+//           ...this.props.style,
+//           opacity: fadeAnim,         // 将透明度指定为动画变量值
+//         }}
+//       >
+//         {this.props.children}
+//       </Animated.View>
+//     );
+//   }
+// }
+
+// // 然后你就可以在组件中像使用`View`那样去使用`FadeInView`了
+// export default class App extends React.Component {
+//   render() {
+//     return (
+//       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//         <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
+//           <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
+//         </FadeInView>
+//       </View>
+//     )
+//   }
+// }
+
+
+import React from 'react';
+import {
+  NativeModules,
+  LayoutAnimation,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+} from 'react-native';
+
+const { UIManager } = NativeModules;
+
+UIManager.setLayoutAnimationEnabledExperimental &&
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+
+export default class App extends React.Component {
+  state = {
+    w: 100,
+    h: 100,
+  };
+
+  _onPress = () => {
+    // Animate the update
+    LayoutAnimation.spring();
+    this.setState({w: this.state.w + 15, h: this.state.h + 15})
   }
 
   render() {
-    if (!this.state.loaded) {
-      return this.renderLoadingView();
-    }
-
     return (
-      <FlatList
-        data={this.state.data}
-        renderItem={this.renderMovie}
-        style={styles.list}
-        keyExtractor={(_, index) => index.toString()}
-      />
+      <View style={styles.container}>
+        <View style={[styles.box, {width: this.state.w, height: this.state.h}]} />
+        <TouchableOpacity onPress={this._onPress}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Press me!</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
@@ -78,28 +104,22 @@ export default class SampleAppMovies extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  rightContainer: {
-    flex: 1
+  box: {
+    width: 200,
+    height: 200,
+    backgroundColor: 'red',
   },
-  title: {
-    fontSize: 20,
-    marginBottom: 8,
-    textAlign: "center"
+  button: {
+    backgroundColor: 'black',
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    marginTop: 15,
   },
-  year: {
-    textAlign: "center"
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
-  thumbnail: {
-    width: 53,
-    height: 81
-  },
-  list: {
-    paddingTop: 20,
-    backgroundColor: "#F5FCFF"
-  }
 });
