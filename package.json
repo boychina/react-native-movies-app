@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "antd-mobile-rn": "^2.3.1",
+    "dva": "^2.4.1",
     "react": "16.6.1",
     "react-native": "0.57.5",
     "react-navigation": "^2.18.2"
