@@ -2,12 +2,12 @@ import {
   createStackNavigator,
 } from 'react-navigation';
 
-import HomeScreen from './src/pages/HomeScreen';
-import ProfileScreen from './src/pages/ProfileScreen';
+import HomePage from './src/pages/HomePage';
+import ProfilePage from './src/pages/ProfilePage';
 
 const App = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Profile: { screen: ProfileScreen },
+  Home: { screen: HomePage },
+  Profile: { screen: ProfilePage },
 });
 
 export default App;
