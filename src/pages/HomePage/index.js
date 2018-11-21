@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import { connect } from 'dva';
 import HomeHeader from '../../component/Home/HomeHeader';
 import MoviesCroup from '../../component/Home/MoviesGroup';
 
-class HomePage extends Component {
+export default class HomePage extends Component {
   static navigationOptions = {
     title: '首页',
   };
@@ -24,5 +23,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   }
 });
-
-export default connect(({ home }) => ({ home }))(HomePage);
