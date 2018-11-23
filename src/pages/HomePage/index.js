@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import { connect } from 'dva';
 import HomeHeader from '../../component/Home/HomeHeader';
 import MoviesCroup from '../../component/Home/MoviesGroup';
 
@@ -25,4 +24,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(({ home }) => ({ home }))(HomePage);
+export default HomePage;
