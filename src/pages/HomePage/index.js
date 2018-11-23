@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import HomeHeader from '../../component/Home/HomeHeader';
-import MoviesCroup from '../../component/Home/MoviesGroup';
+import HomeBody from '../../component/Home/HomeBody';
+import MoviesGroup from '../../component/Home/MoviesGroup';
 
 class HomePage extends Component {
   static navigationOptions = {
@@ -11,7 +12,8 @@ class HomePage extends Component {
     return (
       <View style={styles.container}>
         <HomeHeader />
-        <MoviesCroup />
+        <HomeBody />
+        <MoviesGroup />
       </View>
     );
   }
@@ -20,6 +22,7 @@ class HomePage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    color: '#111',
     backgroundColor: '#ffffff',
   }
 });
