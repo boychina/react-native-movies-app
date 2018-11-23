@@ -1,4 +1,9 @@
 {
-  "presets": ["module:metro-react-native-babel-preset", "react-native"],
+  "presets": [
+    "react-native",
+    "es2015",
+    "stage-1",
+    "mobx"
+  ],
   "plugins": ["transform-decorators-legacy"]
 }
