@@ -32,10 +32,11 @@ const resetAction = NavigationActions.init({
   }
 
   render() {
-    const { login } = this.props;
+    const { login, status,  } = this.props;
+    console.log(">>>", login);
     return(
       <View style={styles.container}>
-        <Text>状态: {this.props.status}
+        <Text>状态: {status}
         </Text>
         <TouchableOpacity onPress={()=>login()} style={{marginTop: 50}}>
           <View style={styles.loginBtn}>
@@ -62,11 +63,14 @@ const styles = StyleSheet.create({
 });
 
 export default connect(
-  (state) => ({
-    status: state.loginIn.status,
-    isSuccess: state.loginIn.isSuccess,
-    user: state.loginIn.user,
-  }),
+  (state) => {
+    console.log("status", state);
+    return {
+      status: state.loginIn.status,
+      isSuccess: state.loginIn.isSuccess,
+      user: state.loginIn.user,
+    }
+  },
   (dispatch) => ({
     login: () => dispatch(loginAction.login()),
   })
