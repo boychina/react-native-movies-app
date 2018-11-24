@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import QuckNav from './QuckNav';
-import Recommend from './Recommend'
+import RecommendFeed from './RecommendFeed'
 
 export default class HomeBody extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class HomeBody extends Component {
     return (
       <View style={styles.container}>
         <QuckNav />
-        <Recommend />
+        <RecommendFeed />
       </View>
     )
   }
