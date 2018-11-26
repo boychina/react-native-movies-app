@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import HomeHeader from '../../component/Home/HomeHeader';
-import HomeBody from '../../component/Home/HomeBody';
-import MoviesGroup from '../../component/Home/MoviesGroup';
+import HomeHeader from '../../components/Home/HomeHeader';
+import HomeBody from '../../components/Home/HomeBody';
+import MoviesGroup from '../../components/Home/MoviesGroup';
 
 class HomePage extends Component {
   static navigationOptions = {
