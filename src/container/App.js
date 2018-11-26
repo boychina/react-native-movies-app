@@ -8,15 +8,18 @@ import {
 import {
   StackNavigator
 } from 'react-navigation';
-import LoginPage from '../pages/LoginPage'
-import MainPage from '../pages/MainPage'
+// import LoginPage from '../pages/LoginPage'
+// import MainPage from '../pages/MainPage'
+
+import HomePage from '../pages/Home';
+import ProfilePage from '../pages/Profile';
 
 const App = StackNavigator({
-  Login: {
-    screen: LoginPage
+  Home: {
+    screen: HomePage
   },
-  Main: {
-    screen: MainPage
+  Profile: {
+    screen: ProfilePage
   },
 });
 
