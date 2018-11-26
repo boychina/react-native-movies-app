@@ -8,14 +8,21 @@ import MoviesGroup from '../../components/Home/MoviesGroup';
 
 class HomePage extends Component {
   static navigationOptions = {
-    title: 'Home',
+    title: '首页',
   };
+
+  gotoMovies = () => {
+    console.log('>>>>点击了')
+    const { navigate } = this.props.navigation;
+    navigate('Profile', { name: 'Jane' })
+  }
+
   render() {
     const { status } = this.props;
-    console.log('>>>>', status);
+    console.log('>>>>', this.props);
     return (
       <View style={styles.container}>
-        <HomeHeader />
+        <HomeHeader gotoMovies={this.gotoMovies}/>
         <HomeBody />
         <MoviesGroup />
       </View>

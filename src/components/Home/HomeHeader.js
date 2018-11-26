@@ -4,13 +4,14 @@ import { StyleSheet, View, Text  } from "react-native";
 
 export default class HomeHeader extends Component {
   render() {
+    const { gotoMovies } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>
           豆瓣
         </Text>
         <View style={styles.menu}>
-          <Text style={[styles.menuItem, styles.movies]}>
+          <Text style={[styles.menuItem, styles.movies]} onPress={gotoMovies}>
             电影
           </Text>
           <Text style={[styles.menuItem, styles.books]}>
