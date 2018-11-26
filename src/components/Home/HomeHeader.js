@@ -35,11 +35,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     paddingLeft: 20,
     paddingRight: 20,
-    // paddingBottom: 46,
-    // lineHeight: 46,
-    // borderBottomWidth: 1,
-    borderBottomColor: '#000000',
-    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderBottomColor: '#f3f3f3',
+    borderStyle: 'solid'
   },
   logo: {
     width: 80,
