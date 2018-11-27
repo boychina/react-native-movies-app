@@ -23,7 +23,7 @@ const resetAction = NavigationActions.init({
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    // 登录完成,切成功登录
+  // 登录完成,切成功登录
     if (nextProps.status === '登陆成功' && nextProps.isSuccess) {
       this.props.navigation.dispatch(resetAction)
       return false;

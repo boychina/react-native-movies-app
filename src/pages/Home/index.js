@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import { connect } from 'react-redux';
 import * as loginAction from '../../actions/loginAction';
-import HomeHeader from '../../components/Home/HomeHeader';
+import HomeHeader from '../../components/Home/Header';
 import HomeBody from '../../components/Home/HomeBody';
 import MoviesGroup from '../../components/Home/MoviesGroup';
 
@@ -14,7 +14,7 @@ class HomePage extends Component {
   gotoMovies = () => {
     console.log('>>>>点击了')
     const { navigate } = this.props.navigation;
-    navigate('Profile', { name: 'Jane' })
+    navigate('Movies', { name: 'Jane' })
   }
 
   render() {
