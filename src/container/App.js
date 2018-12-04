@@ -1,22 +1,16 @@
-import React, {
-  Component
-} from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
-import {
-  StackNavigator
-} from 'react-navigation';
-import LoginPage from '../pages/LoginPage'
-import MainPage from '../pages/MainPage'
+import { StackNavigator } from 'react-navigation';
+// import LoginPage from '../pages/LoginPage'
+// import MainPage from '../pages/MainPage'
+
+import HomePage from '../pages/Home';
+import MoviesPage from '../pages/Movies';
 
 const App = StackNavigator({
-  Login: {
-    screen: LoginPage
+  Home: {
+    screen: HomePage
   },
-  Main: {
-    screen: MainPage
+  Movies: {
+    screen: MoviesPage
   },
 });
 
