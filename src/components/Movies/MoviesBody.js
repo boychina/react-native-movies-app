@@ -28,10 +28,12 @@ export default class HomeBody extends Component {
   );
 
   render() {
+    const { inTheaters } = this.props;
+    const { subjects } = inTheaters;
     return (
       <FlatList
         tyle={styles.container}
-        data={movise}
+        data={subjects}
         extraData={this.state}
         keyExtractor={(item) => item.id}
         renderItem={this.renderMoviseItem}

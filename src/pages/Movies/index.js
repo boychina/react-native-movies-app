@@ -1,17 +1,31 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
+import { connect } from 'react-redux';
 import Header from '../../components/Home/Header';
 import MoviesBody from '../../components/Movies/MoviesBody';
+import * as moviesAction from '../../actions/moviesAction';
 
-export default class MoviesPage extends Component {
+class MoviesPage extends Component {
   static navigationOptions = {
     title: '电影',
   };
+
+  componentDidMount() {
+    console.log("ComponentDidMount");
+    const { dispatch } = this.props;
+    dispatch(moviesAction.getInTheaters());
+  }
+
   render() {
+    const { movies } = this.props;
+    console.log('>>>', movies);
+    const { inTheaters } = movies;
     return (
       <View style={styles.container}>
         <Header gotoMovies={this.gotoMovies}/>
-        <MoviesBody />
+        <MoviesBody
+          inTheaters={inTheaters}
+        />
       </View>
     );
   }
@@ -24,3 +38,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   }
 });
+
+export default connect(({ movies }) => ({ movies }))(MoviesPage);
