@@ -1,19 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, FlatList, Text } from "react-native";
 
-const movise = [
-  {
-    id: 101,
-    title: 'adcdafa',
-    content: 'asldfjasldfjas;ldfasdfasdlfjas'
-  },
-  {
-    id: 102,
-    title: 'adcdafa',
-    content: 'asldfjasldfjas;ldfasdfasdlfjas'
-  }
-]
-
 export default class HomeBody extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +10,6 @@ export default class HomeBody extends Component {
     <View>
       <Text>{item.id}</Text>
       <Text>{item.title}</Text>
-      <Text>{item.content}</Text>
     </View>
   );
 
