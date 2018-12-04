@@ -11,14 +11,12 @@ class MoviesPage extends Component {
   };
 
   componentDidMount() {
-    console.log("ComponentDidMount");
     const { dispatch } = this.props;
     dispatch(moviesAction.getInTheaters());
   }
 
   render() {
     const { movies } = this.props;
-    console.log('>>>', movies);
     const { inTheaters } = movies;
     return (
       <View style={styles.container}>

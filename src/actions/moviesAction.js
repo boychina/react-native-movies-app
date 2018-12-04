@@ -7,7 +7,6 @@ export function getInTheaters() {
   return dispatch => {
     axios.get('http://api.douban.com/v2/movie/in_theaters')
       .then(res => {
-        console.log('axios', res.data);
         dispatch(
           setState(res.data)
         );

@@ -11,8 +11,6 @@ import { connect } from 'react-redux'; // 引入connect函数
 import { NavigationActions } from 'react-navigation';
 import * as counterAction from '../actions/counterAction';
 
-console.log('<<<>>>', NavigationActions);
-
 const resetAction = NavigationActions.init({
   index: 0,
   actions: [

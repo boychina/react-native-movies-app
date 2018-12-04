@@ -12,14 +12,12 @@ class HomePage extends Component {
   };
 
   gotoMovies = () => {
-    console.log('>>>>点击了')
     const { navigate } = this.props.navigation;
     navigate('Movies', { name: 'Jane' })
   }
 
   render() {
     const { status } = this.props;
-    console.log('>>>>', this.props);
     return (
       <View style={styles.container}>
         <HomeHeader gotoMovies={this.gotoMovies}/>
@@ -40,7 +38,6 @@ const styles = StyleSheet.create({
 
 export default connect(
   (state) => {
-    console.log("status", state);
     return {
       status: state.loginIn.status,
       isSuccess: state.loginIn.isSuccess,

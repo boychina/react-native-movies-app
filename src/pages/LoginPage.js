@@ -33,7 +33,6 @@ const resetAction = NavigationActions.init({
 
   render() {
     const { login, status,  } = this.props;
-    console.log(">>>", login);
     return(
       <View style={styles.container}>
         <Text>状态: {status}
@@ -64,7 +63,6 @@ const styles = StyleSheet.create({
 
 export default connect(
   (state) => {
-    console.log("status", state);
     return {
       status: state.loginIn.status,
       isSuccess: state.loginIn.isSuccess,
