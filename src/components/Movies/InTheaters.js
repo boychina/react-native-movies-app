@@ -8,15 +8,19 @@ export default class HomeBody extends Component {
 
   render() {
     return (
-      <ScrollView
+      <View
         style={styles.container}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
       >
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-      </ScrollView>
+        <ScrollView
+          style={styles.container}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        >
+          <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+        </ScrollView>
+      </View>
     )
   }
 }
