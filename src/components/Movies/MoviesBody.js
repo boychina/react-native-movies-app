@@ -18,8 +18,10 @@ export default class HomeBody extends Component {
     const { inTheaters } = this.props;
     const { subjects } = inTheaters;
     return (
-      <View>
-        <InTheaters />
+      <View style={styles.container}>
+        <InTheaters
+          movies={subjects}
+        />
       </View>
     )
   }
