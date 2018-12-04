@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, FlatList, Text } from "react-native";
+import InTheaters from './InTheaters';
 
 export default class HomeBody extends Component {
   constructor(props) {
@@ -17,13 +18,9 @@ export default class HomeBody extends Component {
     const { inTheaters } = this.props;
     const { subjects } = inTheaters;
     return (
-      <FlatList
-        tyle={styles.container}
-        data={subjects}
-        extraData={this.state}
-        keyExtractor={(item) => item.id}
-        renderItem={this.renderMoviseItem}
-      />
+      <View>
+        <InTheaters />
+      </View>
     )
   }
 }
