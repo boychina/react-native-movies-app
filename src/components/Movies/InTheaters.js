@@ -6,6 +6,16 @@ export default class HomeBody extends Component {
     super(props);
   }
 
+  renderMoviesList = () => {
+    const { movies } = this.props;
+    return movies.map((movie) => (
+      <View style={styles.moviesItem} key={movie.id}>
+        <Image source={{uri: movie && movie.images.small, width: 100, height: 142}} />
+        <Text style={styles.movieName} numberOfLines={1}>{movie && movie.title}</Text>
+      </View>
+    ))
+  }
+
   render() {
     const { movies } = this.props;
     console.log('movies', movies);
@@ -24,10 +34,11 @@ export default class HomeBody extends Component {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         >
-          <View style={styles.moviesItem}>
+          {/* <View style={styles.moviesItem}>
             <Image source={{uri: movies[0] && movies[0].images.small, width: 100, height: 142}} />
             <Text style={styles.movieName}>{movies[0] && movies[0].title}</Text>
-          </View>
+          </View> */}
+          {this.renderMoviesList()}
         </ScrollView>
       </View>
     )
@@ -37,6 +48,7 @@ export default class HomeBody extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
+    height: 240,
   },
   titleAndMore: {
     height: 42,
@@ -60,7 +72,7 @@ const styles = StyleSheet.create({
   },
   movieName: {
     width: 100,
-    lineHeight: 24,
-    textAlign: 'center'
+    lineHeight: 28,
+    textAlign: 'center',
   }
 });
