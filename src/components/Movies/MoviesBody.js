@@ -16,7 +16,7 @@ export default class HomeBody extends Component {
 
   render() {
     const { inTheaters } = this.props;
-    const { subjects } = inTheaters;
+    const { subjects = [] } = inTheaters;
     return (
       <View style={styles.container}>
         <InTheaters
