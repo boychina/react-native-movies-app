@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList, ScrollView, Text } from "react-native";
 import MoviesList from './MoviesList';
 
 export default class HomeBody extends Component {
@@ -20,7 +20,9 @@ export default class HomeBody extends Component {
     const { subjects: top250List = [] } = top250;
     const { subjects: comingSoonList = [] } = comingSoon;
     return (
-      <View style={styles.container}>
+      <ScrollView
+        style={styles.container}
+      >
         <MoviesList
           title={inTheaters.title}
           movies={inTheatersList}
@@ -33,7 +35,7 @@ export default class HomeBody extends Component {
           title={comingSoon.title}
           movies={comingSoonList}
         />
-      </View>
+      </ScrollView>
     )
   }
 }
