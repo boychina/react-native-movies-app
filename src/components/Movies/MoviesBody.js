@@ -21,9 +21,11 @@ export default class HomeBody extends Component {
     return (
       <View style={styles.container}>
         <MoviesList
+          title="影院热映"
           movies={inTheatersList}
         />
         <MoviesList
+          title="Top 250"
           movies={top250List}
         />
       </View>

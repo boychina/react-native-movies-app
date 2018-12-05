@@ -17,7 +17,7 @@ export default class MoviesList extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    const { title, movies } = this.props;
     console.log('movies', movies);
     return (
       <View
@@ -26,7 +26,7 @@ export default class MoviesList extends Component {
         <View
           style={styles.titleAndMore}
         >
-          <Text style={styles.title}>影院热映</Text>
+          <Text style={styles.title}>{title}</Text>
           <Text style={styles.more}>更多</Text>
         </View>
         <ScrollView
