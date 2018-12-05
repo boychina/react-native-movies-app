@@ -5,7 +5,7 @@ import * as types from "../constants/moviesTypes";
 
 export function getInTheaters() {
   return dispatch => {
-    axios.get('http://api.douban.com/v2/movie/in_theaters')
+    axios.get('http://api.douban.com/v2/movie/in_theaters?count=8')
       .then(res => {
         dispatch(
           setState(res.data)
