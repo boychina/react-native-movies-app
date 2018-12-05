@@ -15,18 +15,23 @@ export default class HomeBody extends Component {
   );
 
   render() {
-    const { inTheaters, top250 } = this.props;
+    const { inTheaters, top250, comingSoon } = this.props;
     const { subjects: inTheatersList = [] } = inTheaters;
     const { subjects: top250List = [] } = top250;
+    const { subjects: comingSoonList = [] } = comingSoon;
     return (
       <View style={styles.container}>
         <MoviesList
-          title="影院热映"
+          title={inTheaters.title}
           movies={inTheatersList}
         />
         <MoviesList
-          title="Top 250"
+          title={top250.title}
           movies={top250List}
+        />
+        <MoviesList
+          title={comingSoon.title}
+          movies={comingSoonList}
         />
       </View>
     )
