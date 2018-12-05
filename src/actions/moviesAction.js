@@ -8,7 +8,10 @@ export function getInTheaters() {
     axios.get('http://api.douban.com/v2/movie/in_theaters?count=8')
       .then(res => {
         dispatch(
-          setState(res.data)
+          setState({
+            type: types.GET_IN_THEATERS,
+            inTheaters: res.data
+          })
         );
       })
       .catch(e => {
@@ -17,9 +20,25 @@ export function getInTheaters() {
   };
 }
 
-function setState(res) {
+export function getTop250() {
+  return dispatch => {
+    axios.get('http://api.douban.com/v2/movie/top250?count=8')
+      .then(res => {
+        dispatch(
+          setState({
+            type: types.GET_TOP_250,
+            top250: res.data
+          })
+        );
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  };
+}
+
+function setState(result) {
   return {
-    type: types.GET_IN_THEATERS,
-    inTheaters: res
+    ...result
   };
 }

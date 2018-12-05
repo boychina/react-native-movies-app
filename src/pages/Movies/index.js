@@ -13,16 +13,18 @@ class MoviesPage extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(moviesAction.getInTheaters());
+    dispatch(moviesAction.getTop250());
   }
 
   render() {
     const { movies } = this.props;
-    const { inTheaters } = movies;
+    const { inTheaters, top250 } = movies;
     return (
       <View style={styles.container}>
         <Header gotoMovies={this.gotoMovies}/>
         <MoviesBody
           inTheaters={inTheaters}
+          top250={top250}
         />
       </View>
     );

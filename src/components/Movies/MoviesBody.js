@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, FlatList, Text } from "react-native";
-import InTheaters from './InTheaters';
+import MoviesList from './MoviesList';
 
 export default class HomeBody extends Component {
   constructor(props) {
@@ -15,12 +15,16 @@ export default class HomeBody extends Component {
   );
 
   render() {
-    const { inTheaters } = this.props;
-    const { subjects = [] } = inTheaters;
+    const { inTheaters, top250 } = this.props;
+    const { subjects: inTheatersList = [] } = inTheaters;
+    const { subjects: top250List = [] } = top250;
     return (
       <View style={styles.container}>
-        <InTheaters
-          movies={subjects}
+        <MoviesList
+          movies={inTheatersList}
+        />
+        <MoviesList
+          movies={top250List}
         />
       </View>
     )

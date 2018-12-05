@@ -4,6 +4,7 @@ import * as types from '../constants/moviesTypes';
 
 const initialState = {
   inTheaters: {},
+  top250: {},
 }
 
 export default function movies(state = initialState, action) {
@@ -13,7 +14,11 @@ export default function movies(state = initialState, action) {
         ...state,
         inTheaters: action.inTheaters,
       }
-      break;
+    case types.GET_TOP_250:
+      return {
+        ...state,
+        top250: action.top250,
+      }
     default:
       return state;
   }

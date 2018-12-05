@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
 
-export default class HomeBody extends Component {
+export default class MoviesList extends Component {
   constructor(props) {
     super(props);
   }
