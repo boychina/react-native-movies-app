@@ -7,6 +7,11 @@ class MoviesMore extends Component {
     title: '更多',
   };
 
+  componentDidMount() {
+    const {name} = this.props;
+    console.log('name', name);
+  }
+
   render() {
     const {  } = this.props;
     return (
