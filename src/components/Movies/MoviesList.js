@@ -16,8 +16,12 @@ export default class MoviesList extends Component {
     ))
   }
 
+  gotoMore = (moreType) => {
+    console.log('....', moreType)
+  }
+
   render() {
-    const { title, movies } = this.props;
+    const { title, movies, moreType } = this.props;
     console.log('movies', movies);
     return (
       <View
@@ -27,7 +31,7 @@ export default class MoviesList extends Component {
           style={styles.titleAndMore}
         >
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.more}>更多</Text>
+          <Text style={styles.more} onPress={() => this.gotoMore(moreType)}>更多</Text>
         </View>
         <ScrollView
           style={styles.container}

@@ -26,14 +26,17 @@ export default class HomeBody extends Component {
         <MoviesList
           title={inTheaters.title}
           movies={inTheatersList}
+          moreType="in_theaters"
         />
         <MoviesList
           title={top250.title}
           movies={top250List}
+          moreType="top250"
         />
         <MoviesList
           title={comingSoon.title}
           movies={comingSoonList}
+          moreType="coming_soon"
         />
       </ScrollView>
     )
