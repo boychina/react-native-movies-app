@@ -14,6 +14,12 @@ export default class HomeBody extends Component {
     </View>
   );
 
+  gotoMore = (moreType) => {
+    const { navigate } = this.props;
+    console.log(moreType);
+    navigate('MoviesMore', { name: 'Jane' });
+  }
+
   render() {
     const { inTheaters, top250, comingSoon } = this.props;
     const { subjects: inTheatersList = [] } = inTheaters;
@@ -27,16 +33,19 @@ export default class HomeBody extends Component {
           title={inTheaters.title}
           movies={inTheatersList}
           moreType="in_theaters"
+          gotoMore={this.gotoMore}
         />
         <MoviesList
           title={top250.title}
           movies={top250List}
           moreType="top250"
+          gotoMore={this.gotoMore}
         />
         <MoviesList
           title={comingSoon.title}
           movies={comingSoonList}
           moreType="coming_soon"
+          gotoMore={this.gotoMore}
         />
       </ScrollView>
     )
