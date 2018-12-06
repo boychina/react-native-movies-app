@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList, ScrollView, Text } from "react-native";
+import MoviesList from './MoviesList';
 
 export default class HomeBody extends Component {
   constructor(props) {
@@ -14,16 +15,27 @@ export default class HomeBody extends Component {
   );
 
   render() {
-    const { inTheaters } = this.props;
-    const { subjects } = inTheaters;
+    const { inTheaters, top250, comingSoon } = this.props;
+    const { subjects: inTheatersList = [] } = inTheaters;
+    const { subjects: top250List = [] } = top250;
+    const { subjects: comingSoonList = [] } = comingSoon;
     return (
-      <FlatList
-        tyle={styles.container}
-        data={subjects}
-        extraData={this.state}
-        keyExtractor={(item) => item.id}
-        renderItem={this.renderMoviseItem}
-      />
+      <ScrollView
+        style={styles.container}
+      >
+        <MoviesList
+          title={inTheaters.title}
+          movies={inTheatersList}
+        />
+        <MoviesList
+          title={top250.title}
+          movies={top250List}
+        />
+        <MoviesList
+          title={comingSoon.title}
+          movies={comingSoonList}
+        />
+      </ScrollView>
     )
   }
 }
