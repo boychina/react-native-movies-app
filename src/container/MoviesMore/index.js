@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class MoviesMore extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
-    title: navigation.state.params?navigation.state.params.title:null,
+    title: navigation.state.params ? navigation.state.params.title : null,
   });
 
   componentDidMount() {
