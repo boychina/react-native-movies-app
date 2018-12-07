@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { StyleSheet, View, FlatList, ScrollView, Text } from "react-native";
 import MoviesList from './MoviesList';
 
+const MoreTitle = {
+  in_theaters: '正在热映',
+  top250: '豆瓣 Top 250',
+  coming_soon: '即将上映'
+}
+
 export default class HomeBody extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +23,7 @@ export default class HomeBody extends Component {
   gotoMore = (moreType) => {
     const { navigate } = this.props;
     console.log(moreType);
-    navigate('MoviesMore', { name: 'Jane' });
+    navigate('MoviesMore', { title: MoreTitle[moreType] });
   }
 
   render() {

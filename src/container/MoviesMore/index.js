@@ -3,13 +3,16 @@ import { StyleSheet, Text, View } from "react-native";
 import { connect } from 'react-redux';
 
 class MoviesMore extends Component {
-  static navigationOptions = {
-    title: '更多',
-  };
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    title: navigation.state.params?navigation.state.params.title:null,
+  });
 
   componentDidMount() {
-    const {name} = this.props;
-    console.log('name', name);
+    const { } = this.props;
+    console.log('name', this.props.navigation.state.params.title);
+    this.props.navigation.setParams({
+      title: this.props.navigation.state.params.title,
+    })
   }
 
   render() {
