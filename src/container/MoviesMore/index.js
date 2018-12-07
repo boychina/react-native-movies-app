@@ -8,10 +8,10 @@ class MoviesMore extends Component {
   });
 
   componentDidMount() {
-    const { } = this.props;
-    console.log('name', this.props.navigation.state.params.title);
-    this.props.navigation.setParams({
-      title: this.props.navigation.state.params.title,
+    const { navigation } = this.props;
+    console.log('name', navigation.state.params.title);
+    navigation.setParams({
+      title: navigation.state.params.title,
     })
   }
 
