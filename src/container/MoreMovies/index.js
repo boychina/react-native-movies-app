@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     color: '#111',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#ffe',
   }
 });
 
