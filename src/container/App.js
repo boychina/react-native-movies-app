@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 
 import HomePage from './Home';
 import MoviesPage from './Movies';
-import MoviesMore from './MoviesMore';
+import MoreMovies from './MoreMovies';
 
 const App = StackNavigator({
   Home: {
@@ -13,8 +13,8 @@ const App = StackNavigator({
   Movies: {
     screen: MoviesPage
   },
-  MoviesMore: {
-    screen: MoviesMore
+  MoreMovies: {
+    screen: MoreMovies
   }
 });
 

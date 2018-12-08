@@ -23,7 +23,7 @@ export default class HomeBody extends Component {
   gotoMore = (moreType) => {
     const { navigate } = this.props;
     console.log(moreType);
-    navigate('MoviesMore', { title: MoreTitle[moreType] });
+    navigate('MoreMovies', { title: MoreTitle[moreType] });
   }
 
   render() {

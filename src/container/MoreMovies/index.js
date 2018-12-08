@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { connect } from 'react-redux';
 
-class MoviesMore extends Component {
+class MoreMovies extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
     title: navigation.state.params ? navigation.state.params.title : null,
   });
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(({ movies }) => ({ movies }))(MoviesMore);
+export default connect(({ movies }) => ({ movies }))(MoreMovies);

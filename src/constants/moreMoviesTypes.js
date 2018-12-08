@@ -1,0 +1,1 @@
+export const GET_MORE_MOVIES = 'GET_MORE_MOVIES'; // 获取更多电影
