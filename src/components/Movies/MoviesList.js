@@ -17,8 +17,7 @@ export default class MoviesList extends Component {
   }
 
   render() {
-    const { title, movies, moreType, gotoMore } = this.props;
-    console.log('movies', movies);
+    const { title, moreType, gotoMore } = this.props;
     return (
       <View
         style={styles.container}
@@ -34,10 +33,6 @@ export default class MoviesList extends Component {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         >
-          {/* <View style={styles.moviesItem}>
-            <Image source={{uri: movies[0] && movies[0].images.small, width: 100, height: 142}} />
-            <Text style={styles.movieName}>{movies[0] && movies[0].title}</Text>
-          </View> */}
           {this.renderMoviesList()}
         </ScrollView>
       </View>
