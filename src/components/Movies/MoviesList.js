@@ -1,23 +1,14 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { renderMoviesList } from './RenderMoviesList';
 
 export default class MoviesList extends Component {
   constructor(props) {
     super(props);
   }
 
-  renderMoviesList = () => {
-    const { movies } = this.props;
-    return movies.map((movie) => (
-      <View style={styles.moviesItem} key={movie.id}>
-        <Image source={{uri: movie && movie.images.small, width: 100, height: 142}} />
-        <Text style={styles.movieName} numberOfLines={1}>{movie && movie.title}</Text>
-      </View>
-    ))
-  }
-
   render() {
-    const { title, moreType, gotoMore } = this.props;
+    const { title, moreType, gotoMore, movies } = this.props;
     return (
       <View
         style={styles.container}
@@ -33,7 +24,7 @@ export default class MoviesList extends Component {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         >
-          {this.renderMoviesList()}
+          {renderMoviesList(movies)}
         </ScrollView>
       </View>
     )
@@ -60,14 +51,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#42bd56',
     lineHeight: 42,
-  },
-  moviesItem: {
-    width: 100,
-    marginLeft: 18,
-  },
-  movieName: {
-    width: 100,
-    lineHeight: 28,
-    textAlign: 'center',
   }
 });
