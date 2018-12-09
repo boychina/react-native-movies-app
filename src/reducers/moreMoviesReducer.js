@@ -6,12 +6,13 @@ const initialState = {
   moreMovies: {},
 }
 
-export default function movies(state = initialState, action) {
+export default function moreMovies(state = initialState, action) {
+  console.log('adsjfa', action);
   switch (action.type) {
     case types.GET_MORE_MOVIES:
       return {
         ...state,
-        moreMovies: action.inTheaters,
+        moreMovies: action.moreMovies,
       }
     default:
       return state;
