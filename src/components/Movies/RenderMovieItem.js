@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 
 export const renderMovieItem = (movie) => {
-  console.log('>>>><<<<<<<<<<<<<<<<<<<<<<', movie);
   return (
     <View style={styles.moviesItem} key={movie.id}>
       <Image source={{uri: movie && movie.images.small, width: 100, height: 142}} />

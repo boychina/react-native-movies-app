@@ -12,7 +12,6 @@ class MoreMovies extends Component {
   componentDidMount() {
     const { navigation, dispatch } = this.props;
     const moreType = navigation.state.params.moreType;
-    console.log('name', navigation.state.params.moreType);
     navigation.setParams({
       title: navigation.state.params.title,
     })
@@ -22,7 +21,6 @@ class MoreMovies extends Component {
   render() {
     const { moreMovies: { moreMovies } } = this.props;
     const { subjects: movies = [] } = moreMovies;
-    console.log('>>>>akdjadkj', moreMovies);
     return (
       <View style={styles.container}>
         <Text>{moreMovies.title || ''}</Text>

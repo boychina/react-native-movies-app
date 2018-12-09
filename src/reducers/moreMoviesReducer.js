@@ -7,7 +7,6 @@ const initialState = {
 }
 
 export default function moreMovies(state = initialState, action) {
-  console.log('adsjfa', action);
   switch (action.type) {
     case types.GET_MORE_MOVIES:
       return {
