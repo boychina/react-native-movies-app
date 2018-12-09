@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import { connect } from 'react-redux';
 import * as moreMoviesAction from '../../actions/moreMoviesAction';
+import { renderMovieItem } from '../../components/Movies/RenderMovieItem';
 
 class MoreMovies extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
@@ -19,11 +20,18 @@ class MoreMovies extends Component {
   }
 
   render() {
-    const { moreMovies } = this.props;
-    console.log('>>>>', moreMovies);
+    const { moreMovies: { moreMovies } } = this.props;
+    const { subjects: movies = [] } = moreMovies;
+    console.log('>>>>akdjadkj', moreMovies);
     return (
       <View style={styles.container}>
-        <Text>更多电影</Text>
+        <Text>{moreMovies.title || ''}</Text>
+        <FlatList
+          style={styles.moviesList}
+          numColumns={3}
+          data={movies}
+          renderItem={({item}) => renderMovieItem(item)}
+        />
       </View>
     );
   }
@@ -34,6 +42,10 @@ const styles = StyleSheet.create({
     flex: 1,
     color: '#111',
     backgroundColor: '#ffe',
+  },
+  moviesList: {
+    flex: 1,
+    flexDirection: 'column',
   }
 });
 
