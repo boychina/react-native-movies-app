@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { renderMoviesList } from './RenderMoviesList';
 
-export default class MoviesList extends Component {
-  constructor(props) {
-    super(props);
-  }
+interface IProps {
+  title: any;
+  moreType: any;
+  gotoMore: any;
+  movies: any;
+}
 
+export default class MoviesList extends Component<IProps> {
   render() {
     const { title, moreType, gotoMore, movies } = this.props;
     return (

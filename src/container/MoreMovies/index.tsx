@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 import * as moreMoviesAction from '../../actions/moreMoviesAction';
 import { renderMovieItem } from '../../components/Movies/RenderMovieItem';
 
-class MoreMovies extends Component {
-  static navigationOptions = ({ navigation, screenProps }) => ({
+interface IProps {
+  navigation: any;
+  dispatch: any;
+  moreMovies: any;
+}
+
+class MoreMovies extends Component<IProps> {
+  static navigationOptions = ({ navigation, screenProps }: any) => ({
     title: navigation.state.params ? navigation.state.params.title : null,
   });
 
@@ -47,4 +53,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(({ moreMovies }) => ({ moreMovies }))(MoreMovies);
+export default connect(({ moreMovies }: any) => ({ moreMovies }))(MoreMovies);

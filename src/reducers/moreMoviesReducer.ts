@@ -6,7 +6,7 @@ const initialState = {
   moreMovies: {},
 }
 
-export default function moreMovies(state = initialState, action) {
+export default function moreMovies(state = initialState, action: any) {
   switch (action.type) {
     case types.GET_MORE_MOVIES:
       return {

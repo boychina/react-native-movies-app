@@ -5,7 +5,13 @@ import Header from '../../components/Home/Header';
 import MoviesBody from '../../components/Movies/MoviesBody';
 import * as moviesAction from '../../actions/moviesAction';
 
-class MoviesPage extends Component {
+interface IProps {
+  dispatch: any;
+  movies: any;
+  navigation: any;
+}
+
+class MoviesPage extends Component<IProps> {
   static navigationOptions = {
     title: '电影',
   };
@@ -23,7 +29,7 @@ class MoviesPage extends Component {
     const { inTheaters, top250, comingSoon } = movies;
     return (
       <View style={styles.container}>
-        <Header gotoMovies={this.gotoMovies}/>
+        <Header gotoMovies={null}/>
         <MoviesBody
           navigate={navigate}
           inTheaters={inTheaters}
@@ -43,4 +49,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(({ movies }) => ({ movies }))(MoviesPage);
+export default connect(({ movies }: any) => ({ movies }))(MoviesPage);

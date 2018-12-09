@@ -6,7 +6,12 @@ import HomeHeader from '../../components/Home/Header';
 import HomeBody from '../../components/Home/HomeBody';
 import MoviesGroup from '../../components/Home/MoviesGroup';
 
-class HomePage extends Component {
+interface IProps {
+  navigation: any;
+  status: any;
+}
+
+class HomePage extends Component<IProps> {
   static navigationOptions = {
     title: '首页',
   };
@@ -37,14 +42,14 @@ const styles = StyleSheet.create({
 });
 
 export default connect(
-  (state) => {
+  (state: any) => {
     return {
       status: state.loginIn.status,
       isSuccess: state.loginIn.isSuccess,
       user: state.loginIn.user,
     }
   },
-  (dispatch) => ({
+  (dispatch: any) => ({
     login: () => dispatch(loginAction.login()),
   })
 )(HomePage);

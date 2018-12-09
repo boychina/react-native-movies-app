@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-export default class QuckNav extends Component {
-  constructor(props) {
-    super(props);
-  }
+interface IProps {
 
+}
+
+export default class QuckNav extends Component<IProps> {
   render() {
     return (
       <View style={styles.container}>

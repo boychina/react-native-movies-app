@@ -11,7 +11,7 @@ const initialState = {
 
 // 不同类别的事件使用switch对应处理过程
 
-export default function loginIn(state = initialState, action) {
+export default function loginIn(state = initialState, action: any) {
   switch (action.type) {
     case types.LOGIN_IN_DOING:
       return {

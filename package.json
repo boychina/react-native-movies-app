@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "tsx": "./node_modules/.bin/tsc",
     "dev": "react-native run-ios",
     "test": "jest"
   },
@@ -19,11 +20,16 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@types/react": "^16.7.13",
+    "@types/react-native": "^0.57.15",
+    "@types/react-navigation": "^2.13.7",
+    "@types/react-redux": "^6.0.11",
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.49.1",
     "react-devtools": "^3.4.3",
-    "react-test-renderer": "16.6.1"
+    "react-test-renderer": "16.6.1",
+    "typescript": "^3.2.2"
   },
   "jest": {
     "preset": "react-native"

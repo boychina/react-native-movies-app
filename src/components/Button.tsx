@@ -1,7 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default class Button extends Component {
+interface IProps {
+  text: any;
+  onClick: any;
+}
+
+export default class Button extends Component<IProps> {
   static propTypes = {
     text: null,
     onClick: null,

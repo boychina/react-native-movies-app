@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as types from "../constants/moviesTypes";
 
 export function getInTheaters() {
-  return dispatch => {
+  return (dispatch: any) => {
     axios.get('http://api.douban.com/v2/movie/in_theaters?count=8&city=成都')
       .then(res => {
         dispatch(
@@ -21,7 +21,7 @@ export function getInTheaters() {
 }
 
 export function getTop250() {
-  return dispatch => {
+  return (dispatch: any) => {
     axios.get('http://api.douban.com/v2/movie/top250?count=8')
       .then(res => {
         dispatch(
@@ -38,7 +38,7 @@ export function getTop250() {
 }
 
 export function getComingSoon() {
-  return dispatch => {
+  return (dispatch: any) => {
     axios.get('http://api.douban.com/v2/movie/coming_soon?count=8')
       .then(res => {
         dispatch(
@@ -54,7 +54,7 @@ export function getComingSoon() {
   };
 }
 
-function setState(result) {
+function setState(result: any) {
   return {
     ...result
   };

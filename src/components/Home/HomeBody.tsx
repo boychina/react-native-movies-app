@@ -3,11 +3,11 @@ import { StyleSheet, View } from "react-native";
 import QuckNav from './QuckNav';
 import RecommendFeed from './RecommendFeed'
 
-export default class HomeBody extends Component {
-  constructor(props) {
-    super(props);
-  }
+interface IProps {
 
+}
+
+export default class HomeBody extends Component<IProps> {
   render() {
     return (
       <View style={styles.container}>

@@ -1,8 +1,15 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Button from './Button';
 
-export default class Counter extends Component {
+
+interface IProps {
+  decrementFn:any;
+  incrementFn: any;
+  counter: any;
+}
+
+export default class Counter extends Component<IProps> {
   static propTypes = {
     decrementFn: null,
     incrementFn: null,

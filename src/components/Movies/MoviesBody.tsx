@@ -2,25 +2,28 @@ import React, { Component } from "react";
 import { StyleSheet, View, FlatList, ScrollView, Text } from "react-native";
 import MoviesList from './MoviesList';
 
-const MoreTitle = {
+const MoreTitle: any = {
   in_theaters: '正在热映',
   top250: '豆瓣 Top 250',
   coming_soon: '即将上映'
 }
 
-export default class HomeBody extends Component {
-  constructor(props) {
-    super(props);
-  }
+interface IProps {
+  navigate: any;
+  inTheaters: any;
+  top250: any;
+  comingSoon: any;
+}
 
-  renderMoviseItem = ({item}) => (
+export default class HomeBody extends Component<IProps> {
+  renderMoviseItem = ({ item }: any) => (
     <View>
       <Text>{item.id}</Text>
       <Text>{item.title}</Text>
     </View>
   );
 
-  gotoMore = (moreType) => {
+  gotoMore = (moreType: any) => {
     const { navigate } = this.props;
     navigate('MoreMovies', { title: MoreTitle[moreType], moreType });
   }
