@@ -1,5 +1,3 @@
-'use strict';
-
 import * as types from '../constants/loginTypes'; // 导入事件类别,用来做事件类别的判断
 
 // 初始状态

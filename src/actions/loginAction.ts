@@ -1,5 +1,3 @@
-'use strict';
-
 import * as types from '../constants/loginTypes'; // 导入事件类型,用来做分配给各个事件
 
 // 模拟用户信息
