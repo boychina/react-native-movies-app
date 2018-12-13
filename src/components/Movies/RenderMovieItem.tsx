@@ -1,4 +1,5 @@
-import React from "react";
+import * as React from 'react'
+import { Component } from 'react';
 import { StyleSheet, View, Text, Image } from "react-native";
 
 export const renderMovieItem = (movie: any) => {
