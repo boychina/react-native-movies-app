@@ -13,7 +13,7 @@ class HomePage extends Component {
 
   gotoMovies = () => {
     const { navigate } = this.props.navigation;
-    navigate('Movies', { name: 'Jane' })
+    navigate('Movies', { name: 'Jane' });
   }
 
   render() {

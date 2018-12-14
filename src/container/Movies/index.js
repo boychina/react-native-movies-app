@@ -18,12 +18,14 @@ class MoviesPage extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies, navigation } = this.props;
+    const { navigate } = navigation;
     const { inTheaters, top250, comingSoon } = movies;
     return (
       <View style={styles.container}>
         <Header gotoMovies={this.gotoMovies}/>
         <MoviesBody
+          navigate={navigate}
           inTheaters={inTheaters}
           top250={top250}
           comingSoon={comingSoon}
