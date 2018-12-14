@@ -32,7 +32,5 @@ const styles = StyleSheet.create({
     height: 44,
     lineHeight: 44,
     fontSize: 16,
-    // backgroundOrigin: 'content-box',
-    // boxSizing: 'border-box',
   }
 });
