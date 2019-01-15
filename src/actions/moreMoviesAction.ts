@@ -23,7 +23,7 @@ export function clearMoreMovies() {
     dispatch(
       setState({
         type: types.GET_MORE_MOVIES,
-        moreMovies: [],
+        moreMovies: {},
       })
     );
   }

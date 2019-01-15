@@ -2,7 +2,7 @@ import * as types from '../constants/moreMoviesTypes';
 
 const initialState = {
   moreMovies: {},
-}
+};
 
 export default function moreMovies(state = initialState, action: any) {
   switch (action.type) {
@@ -10,7 +10,7 @@ export default function moreMovies(state = initialState, action: any) {
       return {
         ...state,
         moreMovies: action.moreMovies,
-      }
+      };
     default:
       return state;
   }
