@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { Component } from 'react';
+import * as React from 'react';
 import { StyleSheet, View, Text, Image } from "react-native";
 import { starURI, unstarURI } from '../../util/util';
 
@@ -7,7 +6,6 @@ export const renderMovieItem = (movie: any) => {
   const renderStars = (rating) => {
     const { stars } = rating;
     const count = Number(stars[0]);
-    console.log(count);
     const starsList = [];
     for(let i = 0; i < 5; i++){
       if(i < count){
@@ -17,7 +15,7 @@ export const renderMovieItem = (movie: any) => {
       }
     }
     return starsList;
-  }
+  };
   return (
     <View style={styles.moviesItem} key={movie.id}>
       <Image source={{ uri: movie && movie.images.small, width: 100, height: 142 }} />
@@ -34,7 +32,7 @@ export const renderMovieItem = (movie: any) => {
       </View>
     </View>
   )
-}
+};
 
 const styles = StyleSheet.create({
   moviesItem: {

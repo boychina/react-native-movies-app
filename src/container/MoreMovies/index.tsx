@@ -21,8 +21,13 @@ class MoreMovies extends Component<IProps> {
     const moreType = navigation.state.params.moreType;
     navigation.setParams({
       title: navigation.state.params.title,
-    })
+    });
     dispatch(moreMoviesAction.getMoreMovies(moreType));
+  }
+
+  componentWillUnmount(): void {
+    const { dispatch } = this.props;
+    dispatch(moreMoviesAction.clearMoreMovies());
   }
 
   _keyExtractor = (item) => item.id;

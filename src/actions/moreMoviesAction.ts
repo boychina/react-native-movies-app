@@ -18,6 +18,17 @@ export function getMoreMovies(moreType: any) {
   };
 }
 
+export function clearMoreMovies() {
+  return (dispatch: any) => {
+    dispatch(
+      setState({
+        type: types.GET_MORE_MOVIES,
+        moreMovies: [],
+      })
+    );
+  }
+}
+
 function setState(result: any) {
   return {
     ...result
