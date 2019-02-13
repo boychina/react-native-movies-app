@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import * as React from 'react'
+import { Component } from 'react';
 import { StyleSheet, View, Text } from "react-native";
 
-export default class QuckNav extends Component {
-  constructor(props) {
-    super(props);
-  }
+interface IProps {
 
+}
+
+export default class QuckNav extends Component<IProps> {
   render() {
     return (
       <View style={styles.container}>
@@ -31,7 +32,5 @@ const styles = StyleSheet.create({
     height: 44,
     lineHeight: 44,
     fontSize: 16,
-    // backgroundOrigin: 'content-box',
-    // boxSizing: 'border-box',
   }
 });

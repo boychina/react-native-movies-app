@@ -1,8 +1,12 @@
-import React, { Component } from "react";
-
+import * as React from 'react'
+import { Component } from 'react';
 import { StyleSheet, View, Text  } from "react-native";
 
-export default class HomeHeader extends Component {
+interface IProps {
+  gotoMovies: any;
+}
+
+export default class HomeHeader extends Component<IProps> {
   render() {
     const { gotoMovies } = this.props;
     return (

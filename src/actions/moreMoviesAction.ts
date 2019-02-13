@@ -1,10 +1,8 @@
-"use strict";
-
 import axios from 'axios';
 import * as types from "../constants/moreMoviesTypes";
 
-export function getMoreMovies(moreType) {
-  return dispatch => {
+export function getMoreMovies(moreType: any) {
+  return (dispatch: any) => {
     axios.get(`http://api.douban.com/v2/movie/${moreType}?count=100&city=成都`)
       .then(res => {
         dispatch(
@@ -20,7 +18,18 @@ export function getMoreMovies(moreType) {
   };
 }
 
-function setState(result) {
+export function clearMoreMovies() {
+  return (dispatch: any) => {
+    dispatch(
+      setState({
+        type: types.GET_MORE_MOVIES,
+        moreMovies: {},
+      })
+    );
+  }
+}
+
+function setState(result: any) {
   return {
     ...result
   };

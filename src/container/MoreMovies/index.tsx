@@ -1,11 +1,18 @@
-import React, { Component } from "react";
+import * as React from 'react'
+import { Component } from 'react';
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { connect } from 'react-redux';
 import * as moreMoviesAction from '../../actions/moreMoviesAction';
 import { renderMovieItem } from '../../components/Movies/RenderMovieItem';
 
-class MoreMovies extends Component {
-  static navigationOptions = ({ navigation, screenProps }) => ({
+interface IProps {
+  navigation: any;
+  dispatch: any;
+  moreMovies: any;
+}
+
+class MoreMovies extends Component<IProps> {
+  static navigationOptions = ({ navigation, screenProps }: any) => ({
     title: navigation.state.params ? navigation.state.params.title : null,
   });
 
@@ -14,20 +21,28 @@ class MoreMovies extends Component {
     const moreType = navigation.state.params.moreType;
     navigation.setParams({
       title: navigation.state.params.title,
-    })
+    });
     dispatch(moreMoviesAction.getMoreMovies(moreType));
   }
+
+  componentWillUnmount(): void {
+    const { dispatch } = this.props;
+    dispatch(moreMoviesAction.clearMoreMovies());
+  }
+
+  _keyExtractor = (item) => item.id;
 
   render() {
     const { moreMovies: { moreMovies } } = this.props;
     const { subjects: movies = [] } = moreMovies;
     return (
       <View style={styles.container}>
-        <Text>{moreMovies.title || ''}</Text>
+        <Text style={styles.title}>{moreMovies.title || ''}</Text>
         <FlatList
           style={styles.moviesList}
           numColumns={3}
           data={movies}
+          keyExtractor={this._keyExtractor}
           renderItem={({item}) => renderMovieItem(item)}
         />
       </View>
@@ -39,7 +54,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     color: '#111',
-    backgroundColor: '#ffe',
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 20,
+    marginTop: 12,
+    marginBottom: 8,
+    paddingLeft: 20,
   },
   moviesList: {
     flex: 1,
@@ -47,4 +68,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(({ moreMovies }) => ({ moreMovies }))(MoreMovies);
+export default connect(({ moreMovies }: any) => ({ moreMovies }))(MoreMovies);

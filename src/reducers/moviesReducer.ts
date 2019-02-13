@@ -1,5 +1,3 @@
-'use strict';
-
 import * as types from '../constants/moviesTypes';
 
 const initialState = {
@@ -8,7 +6,7 @@ const initialState = {
   comingSoon: {},
 }
 
-export default function movies(state = initialState, action) {
+export default function movies(state = initialState, action: any) {
   switch (action.type) {
     case types.GET_IN_THEATERS:
       return {

@@ -1,14 +1,17 @@
-import React, { Component } from "react";
+import * as React from 'react'
+import { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView } from "react-native";
-import { renderMoviesList } from './RenderMoviesList';
 
-export default class MoviesList extends Component {
-  constructor(props) {
-    super(props);
-  }
+interface IProps {
+  title: any;
+  moreType: any;
+  gotoMore: any;
+  movies: any;
+}
 
+export default class MovieDetail extends Component<IProps> {
   render() {
-    const { title, moreType, gotoMore, movies } = this.props;
+    const { title, moreType, gotoMore } = this.props;
     return (
       <View
         style={styles.container}
@@ -19,13 +22,6 @@ export default class MoviesList extends Component {
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.more} onPress={() => gotoMore(moreType)}>更多</Text>
         </View>
-        <ScrollView
-          style={styles.container}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        >
-          {renderMoviesList(movies)}
-        </ScrollView>
       </View>
     )
   }

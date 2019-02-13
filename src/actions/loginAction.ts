@@ -1,5 +1,3 @@
-'use strict';
-
 import * as types from '../constants/loginTypes'; // 导入事件类型,用来做分配给各个事件
 
 // 模拟用户信息
@@ -10,7 +8,7 @@ let user = {
 
 // 访问登录接口 根据返回结果来划分action属于哪个type,然后返回对象,给reducer处理
 export function login() {
-  return dispatch => {
+  return (dispatch: any) => {
     dispatch(isLogining()); // 正在执行登录请求
     // 模拟用户登录
     let result = fetch('https://www.baidu.com/')
@@ -28,14 +26,14 @@ function isLogining() {
   }
 }
 
-function loginSuccess(isSuccess, user) {
+function loginSuccess(isSuccess: any, user: any) {
   return {
     type: types.LOGIN_IN_DONE,
     user: user,
   }
 }
 
-function loginError(isSuccess) {
+function loginError(isSuccess: any) {
   return {
     type: types.LOGIN_IN_ERROR,
   }
